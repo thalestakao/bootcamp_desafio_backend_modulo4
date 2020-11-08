@@ -8,7 +8,7 @@ const create = async (req, res) => {
     logger.info(`POST /grade - ${JSON.stringify(grade)}`);
   } catch (error) {
     res
-      .status(500)
+      .status(200)
       .send({ message: error.message || 'Algum erro ocorreu ao salvar' });
     logger.error(`POST /grade - ${JSON.stringify(error.message)}`);
   }
@@ -24,7 +24,7 @@ const findAll = async (req, res) => {
 
   try {
     const grades = await gradeModel.find(condition);
-    res.status(500).send(grades);
+    res.status(200).send(grades);
     logger.info(`GET /grade`);
   } catch (error) {
     res
